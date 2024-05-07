@@ -52,6 +52,13 @@ function TextExpander({
   const [expand, setExpand] = useState(expanded);
   const words = countWords(children);
 
+  const buttonStyle = {
+    color: buttonColor,
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    marginLeft: "6px",
+  };
   return (
     <div className={className}>
       {expand
@@ -59,16 +66,8 @@ function TextExpander({
         : words.length > collapsedNumWords
         ? words.slice(0, collapsedNumWords).join(" ") + "... "
         : children}
-      <button
-        style={{
-          color: buttonColor,
-          border: "medium",
-          background: "none",
-          cursor: "pointer",
-        }}
-        onClick={() => setExpand((e) => !e)}
-      >
-        {expand ? collapseButtonText : expandButtonText}
+      <button style={buttonStyle} onclick={() => setexpand((e) => !e)}>
+        {expand ? collapsebuttontext : expandbuttontext}
       </button>
     </div>
   );
